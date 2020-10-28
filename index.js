@@ -11,9 +11,10 @@
  * This is a cool project... yeah.. I'm so lonely..
 */
 
+require("dotenv").config();
+
 const fetch = require("node-fetch");
 const mongoose = require("mongoose");
-const table = require("table").table;
 const moment = require("moment");
 
 const dataSchema = require("./models/data");
@@ -34,8 +35,6 @@ function fetchData() {
             let coords = [`${latitude}`, `${longitude}`];
 
             allData.push(coords);
-            output = table(allData);
-
 
             let dataMongo = new dataSchema({
                 latitude: latitude,
